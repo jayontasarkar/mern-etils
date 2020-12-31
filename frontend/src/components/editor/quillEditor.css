@@ -1,0 +1,10 @@
+.ql-container {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    min-height: 180px;
+}
+
+.ql-toolbar {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}

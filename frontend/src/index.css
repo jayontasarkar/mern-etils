@@ -1,0 +1,64 @@
+.plain-logo {
+  color: #fff;
+  font-size: 31px;
+}
+
+.plain-footer {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* inputs */
+.text-input {
+  border-radius: 15px;
+  padding: 5px 15px;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}
+
+.is-invalid-msg {
+  font-size: 0.7em;
+  min-height: 10px;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+  margin-left: 15px;
+  color: red;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 15px;
+}
+
+.site-layout-background {
+  padding: 24px;
+  min-height: 83vh;
+}
+
+.ant-layout,
+.site-layout-background {
+  background: #fdfdfd;
+}
+
+.site-breadcrumb {
+  border-bottom: 1px solid #ecedef;
+  padding: 16px 22px;
+  font-size: 17px;
+}
+
+.muted-text {
+  color: #5e646e;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.flexbox-space-between {
+  display: flex;
+  justify-content: space-between;
+}

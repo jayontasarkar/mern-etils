@@ -1,0 +1,42 @@
+#components-layout-demo-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 19px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Langar;
+    font-size: 28px;
+    border-bottom: 1px solid #282525;
+}
+
+.site-layout-background {
+    background-color: #fdfdfd;
+}
+
+.ant-menu {
+    font-size: 11px;
+}
+
+.ant-menu-vertical .ant-menu-item:not(:last-child),
+.ant-menu-vertical-left .ant-menu-item:not(:last-child),
+.ant-menu-vertical-right .ant-menu-item:not(:last-child),
+.ant-menu-inline .ant-menu-item:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.search-anything .ant-input-affix-wrapper>input.ant-input {
+    background: #2d2f34;
+    color: #fff;
+}
