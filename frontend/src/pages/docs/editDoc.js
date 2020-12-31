@@ -72,9 +72,16 @@ const EditDoc = ({ history }) => {
     }
     findDoc(params.doc);
     socket.on('doc-updating', (data) => {
-      console.log(data);
+      if (user._id !== data.editing._id && user.team === data.team) {
+        if (data.doc.title) {
+          setTitle(data.doc.title);
+        }
+        if (data.doc.content) {
+          setContent(data.doc.content);
+        }
+      }
     });
-  }, [params.doc]);
+  }, []);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -96,14 +103,24 @@ const EditDoc = ({ history }) => {
     setIsPublic(status);
   };
 
+  const setDocTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+    socket.emit('doc-updating', {
+      editors: invitedMembers,
+      editing: user,
+      team: user.team,
+      doc: { title: e.target.value },
+    });
+  };
+
   const onEditorChange = (value) => {
     socket.emit('doc-updating', {
       editors: invitedMembers,
+      editing: user,
+      team: user.team,
       doc: {
-        id: params.doc,
-        title: title,
         content: value,
-        members: invitedMembers,
       },
     });
     setContent(value);
@@ -268,7 +285,7 @@ const EditDoc = ({ history }) => {
               <Textbox
                 placeholder="Enter doc title within 100 words"
                 name="title"
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={setDocTitle}
                 value={title}
                 error={errors}
                 maxLength="100"

@@ -5,8 +5,13 @@ import { Col, Result, Skeleton } from 'antd';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import docService from '../../services/docService';
+import io from 'socket.io-client';
+
+let socket;
 
 const PreviewDoc = () => {
+  socket = io(process.env.REACT_APP_API_BASE_URL);
+
   const params = useParams();
   const [doc, setDoc] = useState({});
   const [loading, setLoading] = useState(false);
@@ -29,6 +34,15 @@ const PreviewDoc = () => {
       }
     }
     fetchDoc(params.id);
+
+    socket.on('doc-updating', (data) => {
+      if (data.doc.title) {
+        setDoc({ ...doc, title: data.doc.title });
+      }
+      if (data.doc.content) {
+        setDoc({ ...doc, content: data.doc.content });
+      }
+    });
   }, []);
 
   return (
